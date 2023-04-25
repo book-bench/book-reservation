@@ -4,10 +4,12 @@ import com.book.bookreservation.model.Book;
 import com.book.bookreservation.model.Response;
 import com.book.bookserviceconnector.service.BookService;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
+import java.util.Optional;
 
 @RequestMapping("/")
 @RestController
@@ -28,8 +30,11 @@ public class BookReservationController {
         return Response.createResponseWithBooks(transformedBooks);
     }
 
-    public Book reserveBook(int bookId) {
-        return null;
+    @GetMapping("books/{bookId}")
+    public Book reserveBook(@PathVariable int bookId) {
+        return Optional.of(bookService.getBookById(bookId)).
+                map((com.book.bookserviceconnector.model.Book arrivedBook) -> new Book(arrivedBook.id(), arrivedBook.name()) )
+                .get();
     }
 
     public Book returnBook(int bookId) {

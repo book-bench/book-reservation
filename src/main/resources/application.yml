@@ -3,3 +3,6 @@ server:
 
 web-client:
   base-url: http://localhost:8080
+
+#spring.main.web-application-type: servlet
+#spring.main.web-application-type: REACTIVE

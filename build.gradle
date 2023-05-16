@@ -18,19 +18,33 @@ repositories {
 	mavenCentral()
 }
 
+//configurations {
+////	// exclude Reactor Netty
+//	implementation.exclude module: 'spring-boot-starter-reactor-netty'
+//	implementation.exclude module: 'org.springframework.boot:spring-boot-starter-webflux'
+
+//}
+
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-web'
+//	implementation 'org.springframework.boot:spring-boot-starter-webflux'
+
+//	implementation 'org.springframework.boot:spring-boot-starter-graphql'
+//	implementation 'org.springframework.boot:spring-boot-starter-web'
+	compileOnly 'jakarta.servlet:jakarta.servlet-api'
+
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 
 
-	implementation 'org.apache.logging.log4j:log4j-api:2.17.1'
-	implementation 'org.apache.logging.log4j:log4j-core:2.17.1'
+	implementation 'org.apache.logging.log4j:log4j-api'
+	implementation 'org.apache.logging.log4j:log4j-core'
 
-	implementation 'org.springframework.boot:spring-boot-starter-validation:3.0.4'
+	implementation 'org.springframework.boot:spring-boot-starter-validation'
 
-	testImplementation 'org.apache.logging.log4j:log4j-slf4j-impl:2.17.1'
+	testImplementation 'org.apache.logging.log4j:log4j-slf4j-impl'
 
-	implementation 'com.book:book-service-connector:0.0.1-SNAPSHOT'
+	implementation 'com.book:book.service.connector.with.Spring3:0.0.1-SNAPSHOT'
+
 
 
 }
